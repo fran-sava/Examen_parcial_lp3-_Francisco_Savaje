@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examen Parcial LP3 - Francisco Savaje</title>
+
+    <!-- Estilos base (del ZIP, para mantener fuentes y tamaños originales) -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+
+    <!-- Estilos propios (solo colores, disposición, hover, etc.) -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- ======= MENÚ PRINCIPAL ======= -->
+    <header>
+        <nav aria-label="principal">
+            <ul class="menu">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#galeria">Galería</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="inicio">
+        <!-- ======= GALERÍA DE ANIMES ======= -->
+        <section id="galeria">
+            <h2>Galerías de Animes Disponibles Online</h2>
+
+            <div class="gallery">
+                <figure>
+                    <img src="img/one-piece.webp" alt="Imagen 1">
+                    <figcaption>ONE PIECE</figcaption>
+                </figure>
+
+                <figure>
+                    <img src="img/naruto_98.webp" alt="Imagen 2">
+                    <figcaption>NARUTO</figcaption>
+                </figure>
+
+                <figure>
+                    <img src="img/black-clover-new-visual.jpg" alt="Imagen 3">
+                    <figcaption>BLACK CLOVER</figcaption>
+                </figure>
+
+                <figure>
+                    <img src="img/gmgpycnruhk71.webp" alt="Imagen 4">
+                    <figcaption>DEATH NOTE</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <!-- ======= CONTENEDOR CON EFECTO HOVER ======= -->
+        <section id="hover" class="mb">
+            <div class="hover-box" tabindex="0">
+                Descripción Lorem Ipsum
+            </div>
+        </section>
+
+        <!-- ======= TEXTO EN 4 COLUMNAS ======= -->
+        <section id="texto">
+            <h2>Lorem Ipsum (4 columnas)</h2>
+
+            <div class="columns">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras non nibh quis justo feugiat pretium. Duis id iaculis nisi. Etiam erat nisl, euismod non lorem nec, dapibus volutpat odio. Integer vel nisl eu tortor commodo rutrum. In hac habitasse platea dictumst.</p>
+                <p>Morbi a orci eget sem aliquam gravida. Nulla facilisi. Suspendisse potenti. Quisque tincidunt pulvinar turpis. Aenean volutpat, massa at convallis molestie, sapien augue semper massa. Vivamus vitae augue sed quam dictum suscipit. Integer luctus, nibh a condimentum pretium.</p>
+                <p>Aliquam faucibus nisl et neque gravida, vitae sollicitudin justo posuere. Sed dictum justo et urna consectetur fermentum. Donec sollicitudin at velit id ultrices. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.</p>
+                <p>Curabitur posuere, arcu ac tincidunt ullamcorper, nunc ligula faucibus lorem, vitae vehicula massa risus vitae urna. Suspendisse congue nec lorem sit amet tincidunt, lacus magna feugiat leo, quis elementum dui quam id arcu.</p>
+            </div>
+        </section>
+
+        <!-- ======= BOTONES DE INTERACCIÓN (JS) ======= -->
+        <section id="acciones" class="actions">
+            <button class="btn" id="alertBtn">Ver anime online</button>
+            <button class="btn" id="logBtn">Probar consola</button>
+            <!-- El console.log principal se ejecuta desde js/script.js -->
+        </section>
+    </main>
+
+    <!-- ======= PIE DE PÁGINA ======= -->
+    <footer id="contacto">
+        <div>
+            © <span id="year"></span> — Desarrollador: <strong>Francisco Savaje</strong> · 
+            Tel: <a href="tel:+595986112479">+595 986 112 479</a> · 
+            <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </div>
+    </footer>
+
+    <!-- Archivo JS externo -->
+    <script src="js/script.js"></script>
+</body>
+</html>

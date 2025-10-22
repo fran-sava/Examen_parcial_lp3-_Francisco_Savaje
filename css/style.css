@@ -1,0 +1,171 @@
+/* ===============================
+   Estilos principales del examen LP3
+   Autor: Francisco Savaje
+   =============================== */
+
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #f8f9fa; /* color clarito */
+  color: #212529;
+  line-height: 1.5;
+}
+
+/* -------------------------------
+   Menú principal
+   ------------------------------- */
+header {
+  position: sticky;
+  top: 0;
+  background: #111;
+  color: white;
+  padding: .8rem 1rem;
+  z-index: 10;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: .4rem .7rem;
+  border-radius: 4px;
+  transition: background .2s ease;
+}
+
+nav a:hover {
+  background: #333;
+}
+
+/* -------------------------------
+   Galería de imágenes
+   ------------------------------- */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: .8rem;
+  margin: 1rem 0;
+}
+
+.gallery figure {
+  margin: 0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+  text-align: center;
+}
+
+.gallery img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  transition: transform .3s ease;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+}
+
+.gallery figcaption {
+  padding: .5rem;
+  font-style: italic;
+  color: #555;
+}
+
+/* -------------------------------
+   Contenedor con efecto hover
+   ------------------------------- */
+.hover-box {
+  background: #f2f2f2;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 1.2rem;
+  text-align: center;
+  margin: 1rem 0;
+  transition: background .3s ease, color .3s ease;
+}
+
+.hover-box:hover {
+  background: #cceeff;
+  color: #003366;
+}
+
+/* -------------------------------
+   Texto en 4 columnas
+   ------------------------------- */
+.columns {
+  column-count: 4;
+  column-gap: 1.2rem;
+  text-align: justify;
+}
+
+.columns p {
+  margin-bottom: 1rem;
+}
+
+/* Ajustes para pantallas más pequeñas */
+@media (max-width: 1100px) {
+  .columns { column-count: 3; }
+}
+@media (max-width: 900px) {
+  .columns { column-count: 2; }
+}
+@media (max-width: 640px) {
+  .columns { column-count: 1; }
+}
+
+/* -------------------------------
+   Botones (JS)
+   ------------------------------- */
+.actions {
+  margin: 1rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .7rem;
+}
+
+.btn {
+  padding: .6rem 1rem;
+  border: 1px solid #222;
+  background: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background .2s ease, transform .2s ease;
+}
+
+.btn:hover {
+  background: #f3f3f3;
+  transform: scale(1.05);
+}
+
+/* -------------------------------
+   Footer
+   ------------------------------- */
+footer {
+  margin-top: 2rem;
+  background: #111;
+  color: #f8f9fa;
+  text-align: center;
+  padding: 1rem;
+  font-size: .95rem;
+}
+
+footer a {
+  color: #9fd4ff;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
