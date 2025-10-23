@@ -12,7 +12,7 @@ function ir_inicio() {
 }
 
 // Redirección con espera (10 segundos)
-function ir_inicio_10s() {
+function ir_inicio_30s() {
   echo '<meta http-equiv="refresh" content="10;url=index.html">';
 }
 
@@ -62,7 +62,7 @@ if ($action === 'listar') {
   }
 
   echo "</table>";
-  echo "<p>Volviendo al inicio en 10 segundos…</p>";
+  echo "<p>Volviendo al inicio en 30 segundos…</p>";
 
   ir_inicio_10s();
   exit;
