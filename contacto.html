@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto - Examen LP3</title>
+
+  <!-- Estilos base del ZIP -->
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <!-- Estilos propios -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- ======= MENÚ PRINCIPAL ======= -->
+  <header>
+    <nav aria-label="principal">
+      <ul class="menu">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="contacto.html" class="activo">Contactos</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ======= FORMULARIO DE CONTACTO ======= -->
+  <main id="contacto">
+    <h2>Formulario de Contacto</h2>
+
+    <form id="formContacto" class="formulario">
+      <div class="campo">
+        <label for="nombre">Nombre y Apellido:</label>
+        <input type="text" id="nombre" name="nombre" required>
+      </div>
+
+      <div class="campo">
+        <label for="mensaje">Mensaje:</label>
+        <input type="text" id="mensaje" name="mensaje" required>
+      </div>
+
+      <div class="campo">
+        <label for="telefono">Nro de contacto (solo números):</label>
+        <input type="text" id="telefono" name="telefono" required>
+      </div>
+
+      <button type="submit" class="btn">Enviar</button>
+    </form>
+  </main>
+
+  <!-- ======= PIE DE PÁGINA ======= -->
+  <footer>
+    <div>
+      © <span id="year"></span> — Desarrollador: <strong>Francisco Savaje</strong>
+    </div>
+  </footer>
+
+  <!-- ======= ARCHIVO JS ======= -->
+  <script src="js/form.js"></script>
+</body>
+</html>

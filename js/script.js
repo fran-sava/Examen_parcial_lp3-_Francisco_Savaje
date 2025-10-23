@@ -1,21 +1,24 @@
-// ======================================
-// Examen Parcial LP3 - Francisco Savaje
-// Archivo JS para las funciones básicas
-// ======================================
+// Examen LP3 - JS de la página de Inicio
 
-// Mensaje en consola al cargar la página
+// Mensaje al cargar
 console.log("Examen Parcial LP3 cargado correctamente.");
 
-// Botón que muestra un alert al hacer clic
-document.getElementById("alertBtn").addEventListener("click", function() {
-    alert("Atencion deseas continuar?");
-});
+// Alert (si existe el botón en esta página)
+const alertBtn = document.getElementById("alertBtn");
+if (alertBtn) {
+  alertBtn.addEventListener("click", function () {
+    alert("Atención: ¿deseas continuar?");
+  });
+}
 
-// Botón que escribe algo en la consola
-document.getElementById("logBtn").addEventListener("click", function() {
+// Console.log (si existe el botón)
+const logBtn = document.getElementById("logBtn");
+if (logBtn) {
+  logBtn.addEventListener("click", function () {
     console.log("Botón de consola presionado correctamente");
-});
+  });
+}
 
-// Mostrar el año actual en el footer
-let anioActual = new Date().getFullYear();
-document.getElementById("year").textContent = anioActual;
+// Año en el footer
+const y = document.getElementById("year");
+if (y) y.textContent = new Date().getFullYear();

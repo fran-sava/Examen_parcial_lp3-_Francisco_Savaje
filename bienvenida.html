@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bienvenido - Examen LP3</title>
+
+  <link rel="stylesheet" href="css/bootstrap.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- MENÚ -->
+  <header>
+    <nav aria-label="principal">
+      <ul class="menu">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="contacto.html" class="activo">Contactos</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- CONTENIDO -->
+  <main class="bienvenida" style="padding:1rem;">
+    <h2 id="mensajeBienvenida"></h2>
+    <a href="index.html" class="btn">Volver al Inicio</a>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div>
+      © <span id="year"></span> — Desarrollador: <strong>Francisco Savaje</strong>
+    </div>
+  </footer>
+
+  <!-- SCRIPT -->
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const nombre = params.get("nombre");
+
+    const salida = document.getElementById("mensajeBienvenida");
+    salida.textContent = nombre ? `Bienvenido, ${nombre}!` : "Bienvenido!";
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
