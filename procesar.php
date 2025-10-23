@@ -1,25 +1,24 @@
 <?php
-// procesar.php – Examen LP3 (versión simple y completa)
-// Acciones: agregar, listar, modificar, eliminar
-// Luego de cada acción: volver al inicio (index.html)
+// procesar.php – Examen LP3 (versión final corregida)
+// Acciones: agregar, listar, modificar, eliminar datos
+// Luego de cada acción, regresa al inicio automáticamente en 15 segundos
 
 require 'conexion.php';
 
-// ===== Funciones de redirección =====
+// Función: volver inmediatamente al inicio
 function ir_inicio() {
   header("Location: index.html");
   exit;
 }
 
-// Redirección con espera (10 segundos)
-function ir_inicio_30s() {
-  echo '<meta http-equiv="refresh" content="10;url=index.html">';
+// Función: volver al inicio luego de 15 segundos (para ver resultados)
+function ir_inicio_15s() {
+  echo '<meta http-equiv="refresh" content="15;url=index.html">';
 }
 
-// ===== Determinar acción =====
 $action = isset($_GET['action']) ? $_GET['action'] : '';
 
-// (A) AGREGAR (INSERT) – recibe POST: nombre, mensaje, telefono
+// (A) AGREGAR (INSERT) – espera POST: nombre, mensaje, telefono
 if ($action === 'agregar') {
   $nombre   = isset($_POST['nombre'])   ? trim($_POST['nombre'])   : '';
   $mensaje  = isset($_POST['mensaje'])  ? trim($_POST['mensaje'])  : '';
@@ -37,7 +36,7 @@ if ($action === 'agregar') {
   ir_inicio();
 }
 
-// (B) LISTAR (SELECT) – muestra la tabla y vuelve solo a los 10s
+// (B) LISTAR (SELECT) – muestra y vuelve al inicio en 15s
 if ($action === 'listar') {
   $res = $conexion->query("SELECT id, nombre, mensaje, telefono, creado FROM contactos ORDER BY id DESC");
 
@@ -60,17 +59,16 @@ if ($action === 'listar') {
           </td>";
     echo "</tr>";
   }
-
   echo "</table>";
-  echo "<p>Volviendo al inicio en 30 segundos…</p>";
+  echo "<p>Volviendo al inicio en 15 segundos…</p>";
 
-  ir_inicio_10s();
+  ir_inicio_15s();
   exit;
 }
 
 // (C) MODIFICAR (UPDATE)
-//   GET: muestra formulario para editar
-//   POST: guarda los cambios y vuelve al inicio
+//   GET: muestra formulario simple
+//   POST: guarda cambios y vuelve al inicio
 if ($action === 'modificar') {
   if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     $id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
@@ -98,13 +96,13 @@ if ($action === 'modificar') {
       ir_inicio();
     }
   } else {
-    // POST: guardar los cambios
+    // POST: guardar cambios
     $id       = isset($_POST['id']) ? (int)$_POST['id'] : 0;
     $nombre   = isset($_POST['nombre']) ? trim($_POST['nombre']) : '';
     $mensaje  = isset($_POST['mensaje']) ? trim($_POST['mensaje']) : '';
     $telefono = isset($_POST['telefono']) ? trim($_POST['telefono']) : '';
 
-    if ($id <= 0 || $nombre === '' || $mensaje === '' || $telefono === '') ir_inicio();
+    if ($id<=0 || $nombre==='' || $mensaje==='' || $telefono==='') ir_inicio();
 
     $stmt = $conexion->prepare("UPDATE contactos SET nombre=?, mensaje=?, telefono=? WHERE id=?");
     $stmt->bind_param("sssi", $nombre, $mensaje, $telefono, $id);
@@ -115,7 +113,7 @@ if ($action === 'modificar') {
   }
 }
 
-// (D) ELIMINAR (DELETE) – elimina por id en GET
+// (D) ELIMINAR (DELETE) – por id en GET
 if ($action === 'eliminar') {
   $id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
   if ($id > 0) {
@@ -127,6 +125,6 @@ if ($action === 'eliminar') {
   ir_inicio();
 }
 
-// Si no hay acción conocida, volver al inicio
+// Sin acción conocida → inicio
 ir_inicio();
 ?>
